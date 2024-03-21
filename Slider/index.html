@@ -1,0 +1,998 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Responsive Trading Dashboard with Cards</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      
+    />
+    <style>
+      
+      .card-item-text{
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        color: #ffffff;
+      }
+      /* Custom styles */
+      .nav-tabs .nav-item.show .nav-link,
+      .nav-tabs .nav-link.active {
+        color: #fff;
+        background-color: #100421; 
+        border-color: #c104d2;
+        height: 50px;
+        border-top: none;
+        border-left: none;
+        border-right: none;
+      }
+      .tab-content {
+        background-color: #100421;
+        padding: 20px;
+        border: 1px solid #dee2e6;
+        border-top: none;
+      }
+      .carousel-indicators {
+        bottom: -40px;
+      }
+      .carousel-indicators li {
+        background-color: #007bff;
+        cursor: pointer;
+      }
+      .carousel-item {
+        
+        text-align: center;
+        min-height: 400px; /* Adjust height as needed */
+      }
+      .card {
+        height: 320px;
+        margin: 10px; /* Spacing between cards */
+        background-color: #100421;
+        border: 1px solid white;
+        border-radius: 20px;
+        
+
+      }
+      .card .btn {
+        margin-top: 10px; /* Spacing above buttons */
+        height: 40px;
+        width: 70px;
+        margin-right: 20px;
+        margin-top: 40px;
+      }
+      .card-text {
+        margin-bottom: 0.5rem;
+      }
+      .card-body p {
+        font-size: 0.9rem; /* Smaller font size for card text */
+        
+      }
+      .card-title {
+        color: #ffffff;
+      }
+      .d-flex justify-content-between{
+        display: flex;
+        width: 100%;
+      }
+      .carousel-control-prev {
+        margin-top: 35%;
+        margin-left: 45%;
+        border-radius: 100%;
+        background-color: #c104d2;
+        width: 40px;
+        height: 40px;
+      }
+
+      .carousel-control-next {
+        margin-top: 35%;
+        margin-right: 45%;
+        border-radius: 100%;
+        background-color: #c104d2;
+        width: 40px;
+        height: 40px;
+      }
+
+  
+      .btn-buy{
+        background-color: #c104d2;
+        color:#ffffff;
+        width:  100px;
+        height: 56px;
+      }
+      .btn-danger{
+        background-color: #ED4C5C;
+        color: #ffffff;
+        width:  124px;
+        height: 56px;
+      }
+     
+
+      .nav-item {
+        padding-left: 54.2px;
+        background-color: #100421;
+        
+      }
+      .nav-link{
+        color: #ffffff;
+      }
+      
+    </style>
+  </head>
+  <body>
+    <div class="container mt-5">
+      <!-- Nav tabs -->
+      <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item">
+          <a
+            class="nav-link active"
+            id="forex-tab"
+            data-toggle="tab"
+            href="#forex"
+            role="tab"
+            aria-controls="forex"
+            aria-selected="true"
+            >Forex</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            id="crypto-tab"
+            data-toggle="tab"
+            href="#crypto"
+            role="tab"
+            aria-controls="crypto"
+            aria-selected="false"
+            >Crypto CFDs</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            id="Share CFDs"
+            data-toggle="tab"
+            href="#Share CFDs"
+            role="tab"
+            aria-controls="Share CFDs "
+            aria-selected="false"
+            >Share CFDs</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            id="Commodities"
+            data-toggle="tab"
+            href="#Commodities"
+            role="tab"
+            aria-controls="Commodities "
+            aria-selected="false"
+            >Commodities</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            id="Spot Metals"
+            data-toggle="tab"
+            href="#Spot Metals"
+            role="tab"
+            aria-controls="Spot Metals "
+            aria-selected="false"
+            >Spot Metals</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            id="Energies"
+            data-toggle="tab"
+            href="#Energies"
+            role="tab"
+            aria-controls="Energies "
+            aria-selected="false"
+            >Energies</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            id="Indices"
+            data-toggle="tab"
+            href="#Indices"
+            role="tab"
+            aria-controls="Indices "
+            aria-selected="false"
+            >Indices</a
+          >
+        </li>
+      </ul>
+
+      <!-- Tab panes -->
+      <div class="tab-content" id="myTabContent">
+        <!-- Forex tab pane -->
+        <div
+          class="tab-pane fade show active"
+          id="forex"
+          role="tabpanel"
+          aria-labelledby="forex-tab"
+        >
+          <div id="forexCarousel" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+              <!-- First slide with two cards -->
+              <div class="carousel-item active">
+                <div class="card-deck">
+                  <div class="card">
+                    <div class="card-body">
+                      <h5 class="card-title">AUDUSD</h5>
+                      <img src="image 1.png" width="140" height="80" />
+                      <div class="card-item-text"> <span> Ask </span> <span> 0.67065 </span>  </div>
+                      <div class="card-item-text"> <span> Bid </span> <span> 0.6706 </span>  </div>
+                      <div class="card-item-text"> <span> Spread </span> <span> 5 </span>  </div>
+
+                      <button class="btn btn-danger">Sell</button>
+                      <button class="btn btn-buy">Buy</button>
+                    </div>
+                  </div>
+                  
+                  <div class="card">
+                    <div class="card-body">
+                      <h5 class="card-title">EURUSD</h5>
+                      <img src="image 2.png" width="140" height="80" />
+                      <div class="card-item-text"> <span> Ask </span> <span> 0.67065 </span>  </div>
+                      <div class="card-item-text"> <span> Bid </span> <span> 0.6706 </span>  </div>
+                      <div class="card-item-text"> <span> Spread </span> <span> 5 </span>  </div>
+                      <button class="btn btn-danger">Sell</button>
+                      <button class="btn btn-buy">Buy</button>
+                    </div>
+                  </div>
+                  <div class="card">
+                    <div class="card-body">
+                      <h5 class="card-title">AUDUSD</h5>
+                      <img src="image 1.png" width="140" height="80" />
+                      <div class="card-item-text"> <span> Ask </span> <span> 0.67065 </span>  </div>
+                      <div class="card-item-text"> <span> Bid </span> <span> 0.6706 </span>  </div>
+                      <div class="card-item-text"> <span> Spread </span> <span> 5 </span>  </div>
+                      <button class="btn btn-danger">Sell</button>
+                      <button class="btn btn-buy">Buy</button>
+                    </div>
+                  </div>
+                  <div class="card">
+                    <div class="card-body">
+                      <h5 class="card-title">EURUSD</h5>
+                      <img src="image 2.png" width="140" height="80" />
+                      <div class="card-item-text"> <span> Ask </span> <span> 0.67065 </span>  </div>
+                      <div class="card-item-text"> <span> Bid </span> <span> 0.6706 </span>  </div>
+                      <div class="card-item-text"> <span> Spread </span> <span> 5 </span>  </div>
+                      <button class="btn btn-danger">Sell</button>
+                      <button class="btn btn-buy">Buy</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Second slide with two cards -->
+              <div class="carousel-item">
+                <div class="card-deck">
+                  <div class="card">
+                    <div class="card-body">
+                      <h5 class="card-title">AUDUSD</h5>
+                      <img src="image 1.png" width="140" height="80" />
+                      <div class="card-item-text"> <span> Ask </span> <span> 0.67065 </span>  </div>
+                      <div class="card-item-text"> <span> Bid </span> <span> 0.6706 </span>  </div>
+                      <div class="card-item-text"> <span> Spread </span> <span> 5 </span>  </div>
+                      <button class="btn btn-danger">Sell</button>
+                      <button class="btn btn-buy">Buy</button>
+                    </div>
+                  </div>
+                  <div class="card">
+                    <div class="card-body">
+                      <h5 class="card-title">EURUSD</h5>
+                      <img src="image 2.png" width="140" height="80" />
+                      <div class="card-item-text"> <span> Ask </span> <span> 0.67065 </span>  </div>
+                      <div class="card-item-text"> <span> Bid </span> <span> 0.6706 </span>  </div>
+                      <div class="card-item-text"> <span> Spread </span> <span> 5 </span>  </div>
+                      <button class="btn btn-danger">Sell</button>
+                      <button class="btn btn-buy">Buy</button>
+                    </div>
+                  </div>
+                  <div class="card">
+                    <div class="card-body">
+                      <h5 class="card-title">AUDUSD</h5>
+                      <img src="image 1.png" width="140" height="80" />
+                      <div class="card-item-text"> <span> Ask </span> <span> 0.67065 </span>  </div>
+                      <div class="card-item-text"> <span> Bid </span> <span> 0.6706 </span>  </div>
+                      <div class="card-item-text"> <span> Spread </span> <span> 5 </span>  </div>
+                      <button class="btn btn-danger">Sell</button>
+                      <button class="btn btn-buy">Buy</button>
+                    </div>
+                  </div>
+                  <div class="card">
+                    <div class="card-body">
+                      <h5 class="card-title">EURUSD</h5>
+                      <img src="image 2.png" width="140" height="80" />
+                      <div class="card-item-text"> <span> Ask </span> <span> 0.67065 </span>  </div>
+                      <div class="card-item-text"> <span> Bid </span> <span> 0.6706 </span>  </div>
+                      <div class="card-item-text"> <span> Spread </span> <span> 5 </span>  </div>
+                      <button class="btn btn-danger">Sell</button>
+                      <button class="btn btn-buy">Buy</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Carousel indicators -->
+            <!-- <ol class="carousel-indicators">
+              <li
+                data-target="#forexCarousel"
+                data-slide-to="0"
+                class="active"
+              ></li>
+              <li data-target="#forexCarousel" data-slide-to="1"></li>
+            </ol> -->
+            <!-- Carousel controls -->
+            <button
+              class="carousel-control-prev"
+              href="#forexCarousel"
+              role="button"
+              data-slide="prev"
+            >
+              <span
+                class="carousel-control-prev-icon"
+                aria-hidden="true"
+              ></span>
+            </button>
+            <button
+              class="carousel-control-next"
+              href="#forexCarousel"
+              role="button"
+              data-slide="next"
+            >
+              <span
+                class="carousel-control-next-icon"
+                aria-hidden="true"
+              ></span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Crypto CFDs tab pane -->
+        <div
+          class="tab-pane fade"
+          id="crypto"
+          role="tabpanel"
+          aria-labelledby="crypto-tab"
+        >
+          <div id="cryptoCarousel" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+              <!-- First slide with two cards -->
+              <div class="carousel-item active">
+                <div class="card-deck">
+                  <div class="card">
+                    <div class="card-body">
+                      <h5 class="card-title">BTCUSD</h5>
+                      <img src="image 1.png" width="140" height="80" />
+                      <div class="card-item-text"> <span> Ask </span> <span> 0.67065 </span>  </div>
+                      <div class="card-item-text"> <span> Bid </span> <span> 0.6706 </span>  </div>
+                      <div class="card-item-text"> <span> Spread </span> <span> 5 </span>  </div>
+                      <button class="btn btn-danger">Sell</button>
+                      <button class="btn btn-buy">Buy</button>
+                    </div>
+                  </div>
+                  <div class="card">
+                    <div class="card-body">
+                      <h5 class="card-title">ETHUSD</h5>
+                      <img src="image 2.png" width="140" height="80" />
+                      <div class="card-item-text"> <span> Ask </span> <span> 0.67065 </span>  </div>
+                      <div class="card-item-text"> <span> Bid </span> <span> 0.6706 </span>  </div>
+                      <div class="card-item-text"> <span> Spread </span> <span> 5 </span>  </div>
+                      <button class="btn btn-danger">Sell</button>
+                      <button class="btn btn-buy">Buy</button>
+                    </div>
+                  </div>
+                  <div class="card">
+                    <div class="card-body">
+                      <h5 class="card-title">BTCUSD</h5>
+                      <img src="image 1.png" width="140" height="80" />
+                      <div class="card-item-text"> <span> Ask </span> <span> 0.67065 </span>  </div>
+                      <div class="card-item-text"> <span> Bid </span> <span> 0.6706 </span>  </div>
+                      <div class="card-item-text"> <span> Spread </span> <span> 5 </span>  </div>
+                      <button class="btn btn-danger">Sell</button>
+                      <button class="btn btn-buy">Buy</button>
+                    </div>
+                  </div>
+                  <div class="card">
+                    <div class="card-body">
+                      <h5 class="card-title">ETHUSD</h5>
+                      <img src="image 2.png" width="140" height="80" />
+                      <div class="card-item-text"> <span> Ask </span> <span> 0.67065 </span>  </div>
+                      <div class="card-item-text"> <span> Bid </span> <span> 0.6706 </span>  </div>
+                      <div class="card-item-text"> <span> Spread </span> <span> 5 </span>  </div>
+                      <button class="btn btn-danger">Sell</button>
+                      <button class="btn btn-buy">Buy</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Second slide with two cards -->
+              <div class="carousel-item">
+                <div class="card-deck">
+                  <div class="card">
+                    <div class="card-body">
+                      <h5 class="card-title">AUDUSD</h5>
+                      <img src="image 1.png" width="140" height="80" />
+                      <div class="card-item-text"> <span> Ask </span> <span> 0.67065 </span>  </div>
+                      <div class="card-item-text"> <span> Bid </span> <span> 0.6706 </span>  </div>
+                      <div class="card-item-text"> <span> Spread </span> <span> 5 </span>  </div>
+                      <button class="btn btn-danger">Sell</button>
+                      <button class="btn btn-buy">Buy</button>
+                    </div>
+                  </div>
+                  <div class="card">
+                    <div class="card-body">
+                      <h5 class="card-title">EURUSD</h5>
+                      <img src="image 2.png" width="140" height="80" />
+                      <div class="card-item-text"> <span> Ask </span> <span> 0.67065 </span>  </div>
+                      <div class="card-item-text"> <span> Bid </span> <span> 0.6706 </span>  </div>
+                      <div class="card-item-text"> <span> Spread </span> <span> 5 </span>  </div>
+                      <button class="btn btn-danger">Sell</button>
+                      <button class="btn btn-buy">Buy</button>
+                    </div>
+                  </div>
+                  <div class="card">
+                    <div class="card-body">
+                      <h5 class="card-title">AUDUSD</h5>
+                      <img src="image 1.png" width="140" height="80" />
+                      <div class="card-item-text"> <span> Ask </span> <span> 0.67065 </span>  </div>
+                      <div class="card-item-text"> <span> Bid </span> <span> 0.6706 </span>  </div>
+                      <div class="card-item-text"> <span> Spread </span> <span> 5 </span>  </div>
+                      <button class="btn btn-buy">Buy</button>
+                    </div>
+                  </div>
+                  <div class="card">
+                    <div class="card-body">
+                      <h5 class="card-title">EURUSD</h5>
+                      <img src="image 2.png" width="140" height="80" />
+                      <div class="card-item-text"> <span> Ask </span> <span> 0.67065 </span>  </div>
+                      <div class="card-item-text"> <span> Bid </span> <span> 0.6706 </span>  </div>
+                      <div class="card-item-text"> <span> Spread </span> <span> 5 </span>  </div>
+                      <button class="btn btn-danger">Sell</button>
+                      <button class="btn btn-buy">Buy</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Carousel indicators -->
+            <ol class="carousel-indicators">
+              <li
+                data-target="#cryptoCarousel"
+                data-slide-to="0"
+                class="active"
+              ></li>
+              <li data-target="#cryptoCarousel" data-slide-to="1"></li>
+            </ol>
+            <!-- Carousel controls -->
+            <button
+              class="carousel-control-prev"
+              href="#cryptoCarousel"
+              role="button"
+              data-slide="prev"
+            >
+              <span
+                class="carousel-control-prev-icon"
+                aria-hidden="true"
+              ></span>
+            </button>
+            <button
+              class="carousel-control-next"
+              href="#cryptoCarousel"
+              role="button"
+              data-slide="next"
+            >
+              <span
+                class="carousel-control-next-icon"
+                aria-hidden="true"
+              ></span>
+            </button>
+          </div>
+        </div>
+        <!-- Share CFDs tab pane -->
+        <div
+          class="tab-pane fade"
+          id="Share CFDs"
+          role="tabpanel"
+          aria-labelledby="Share CFDs"
+        >
+          <div id="Share Carousel" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+              <!-- First slide with two cards -->
+              <div class="carousel-item active">
+                <div class="card-deck">
+                  <div class="card">
+                    <div class="card-body">
+                      <h5 class="card-title">BTCUSD</h5>
+                      <img src="image 1.png" width="140" height="80" />
+                      <div class="card-item-text"> <span> Ask </span> <span> 0.67065 </span>  </div>
+                      <div class="card-item-text"> <span> Bid </span> <span> 0.6706 </span>  </div>
+                      <div class="card-item-text"> <span> Spread </span> <span> 5 </span>  </div>
+                      <button class="btn btn-danger">Sell</button>
+                      <button class="btn btn-buy">Buy</button>
+                    </div>
+                  </div>
+                  <div class="card">
+                    <div class="card-body">
+                      <h5 class="card-title">ETHUSD</h5>
+                      <img src="image 2.png" width="140" height="80" />
+                      <div class="card-item-text"> <span> Ask </span> <span> 0.67065 </span>  </div>
+                      <div class="card-item-text"> <span> Bid </span> <span> 0.6706 </span>  </div>
+                      <div class="card-item-text"> <span> Spread </span> <span> 5 </span>  </div>
+                      <button class="btn btn-danger">Sell</button>
+                      <button class="btn btn-buy">Buy</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Second slide with two cards -->
+              <div class="carousel-item">
+                <div class="card-deck">
+                  <div class="card">
+                    <div class="card-body">
+                      <h5 class="card-title">AUDUSD</h5>
+                      <img src="image 1.png" width="140" height="80" />
+                      <div class="card-item-text"> <span> Ask </span> <span> 0.67065 </span>  </div>
+                      <div class="card-item-text"> <span> Bid </span> <span> 0.6706 </span>  </div>
+                      <div class="card-item-text"> <span> Spread </span> <span> 5 </span>  </div>
+                      <button class="btn btn-danger">Sell</button>
+                      <button class="btn btn-buy">Buy</button>
+                    </div>
+                  </div>
+                  <div class="card">
+                    <div class="card-body">
+                      <h5 class="card-title">EURUSD</h5>
+                      <img src="image 2.png" width="140" height="80" />
+                      <div class="card-item-text"> <span> Ask </span> <span> 0.67065 </span>  </div>
+                      <div class="card-item-text"> <span> Bid </span> <span> 0.6706 </span>  </div>
+                      <div class="card-item-text"> <span> Spread </span> <span> 5 </span>  </div>
+                      <button class="btn btn-danger">Sell</button>
+                      <button class="btn btn-buy">Buy</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Carousel indicators -->
+            <ol class="carousel-indicators">
+              <li
+                data-target="#Share CFDs"
+                data-slide-to="0"
+                class="active"
+              ></li>
+              <li data-target="#Share CFDs" data-slide-to="1"></li>
+            </ol>
+            <!-- Carousel controls -->
+            <button
+              class="carousel-control-prev"
+              href="#Share CFDs"
+              role="button"
+              data-slide="prev"
+            >
+              <span
+                class="carousel-control-prev-icon"
+                aria-hidden="true"
+              ></span>
+            </button>
+            <button
+              class="carousel-control-next"
+              href="#Share CFDs"
+              role="button"
+              data-slide="next"
+            >
+              <span
+                class="carousel-control-next-icon"
+                aria-hidden="true"
+              ></span>
+            </button>
+          </div>
+        </div>
+        <!-- Commodities tab pane -->
+        <div
+          class="tab-pane fade"
+          id="Commodities"
+          role="tabpanel"
+          aria-labelledby="Commodities"
+        >
+          <div id="Commodities" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+              <!-- First slide with two cards -->
+              <div class="carousel-item active">
+                <div class="card-deck">
+                  <div class="card">
+                    <div class="card-body">
+                      <h5 class="card-title">BTCUSD</h5>
+                      <img src="image 1.png" width="140" height="80" />
+                      <div class="card-item-text"> <span> Ask </span> <span> 0.67065 </span>  </div>
+                      <div class="card-item-text"> <span> Bid </span> <span> 0.6706 </span>  </div>
+                      <div class="card-item-text"> <span> Spread </span> <span> 5 </span>  </div>
+                      <button class="btn btn-danger">Sell</button>
+                      <button class="btn btn-buy">Buy</button>
+                    </div>
+                  </div>
+                  <div class="card">
+                    <div class="card-body">
+                      <h5 class="card-title">ETHUSD</h5>
+                      <img src="image 2.png" width="140" height="80" />
+                      <div class="card-item-text"> <span> Ask </span> <span> 0.67065 </span>  </div>
+                      <div class="card-item-text"> <span> Bid </span> <span> 0.6706 </span>  </div>
+                      <div class="card-item-text"> <span> Spread </span> <span> 5 </span>  </div>
+                      <button class="btn btn-danger">Sell</button>
+                      <button class="btn btn-buy">Buy</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Second slide with two cards -->
+              <div class="carousel-item">
+                <div class="card-deck">
+                  <div class="card">
+                    <div class="card-body">
+                      <h5 class="card-title">AUDUSD</h5>
+                      <img src="image 1.png" width="140" height="80" />
+                      <div class="card-item-text"> <span> Ask </span> <span> 0.67065 </span>  </div>
+                      <div class="card-item-text"> <span> Bid </span> <span> 0.6706 </span>  </div>
+                      <div class="card-item-text"> <span> Spread </span> <span> 5 </span>  </div>
+                      <button class="btn btn-danger">Sell</button>
+                      <button class="btn btn-buy">Buy</button>
+                    </div>
+                  </div>
+                  <div class="card">
+                    <div class="card-body">
+                      <h5 class="card-title">EURUSD</h5>
+                      <img src="image 2.png" width="140" height="80" />
+                      <div class="card-item-text"> <span> Ask </span> <span> 0.67065 </span>  </div>
+                      <div class="card-item-text"> <span> Bid </span> <span> 0.6706 </span>  </div>
+                      <div class="card-item-text"> <span> Spread </span> <span> 5 </span>  </div>
+                      <button class="btn btn-danger">Sell</button>
+                      <button class="btn btn-buy">Buy</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Carousel indicators -->
+            <ol class="carousel-indicators">
+              <li
+                data-target="#Commodities"
+                data-slide-to="0"
+                class="active"
+              ></li>
+              <li data-target="#Commodities" data-slide-to="1"></li>
+            </ol>
+            <!-- Carousel controls -->
+            <button
+              class="carousel-control-prev"
+              href="#Commodities"
+              role="button"
+              data-slide="prev"
+            >
+              <span
+                class="carousel-control-prev-icon"
+                aria-hidden="true"
+              ></span>
+            </button>
+            <button
+              class="carousel-control-next"
+              href="#Commodities"
+              role="button"
+              data-slide="next"
+            >
+              <span
+                class="carousel-control-next-icon"
+                aria-hidden="true"
+              ></span>
+            </button>
+          </div>
+        </div>
+        <!-- Spot Metals tab pane -->
+        <div
+          class="tab-pane fade"
+          id="Spot Metals"
+          role="tabpanel"
+          aria-labelledby="Spot Metals"
+        >
+          <div id="Spot Metals" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+              <!-- First slide with two cards -->
+              <div class="carousel-item active">
+                <div class="card-deck">
+                  <div class="card">
+                    <div class="card-body">
+                      <h5 class="card-title">BTCUSD</h5>
+                      <img src="image 1.png" width="140" height="80" />
+                      <div class="card-item-text"> <span> Ask </span> <span> 0.67065 </span>  </div>
+                      <div class="card-item-text"> <span> Bid </span> <span> 0.6706 </span>  </div>
+                      <div class="card-item-text"> <span> Spread </span> <span> 5 </span>  </div>
+                      <button class="btn btn-danger">Sell</button>
+                      <button class="btn btn-buy">Buy</button>
+                    </div>
+                  </div>
+                  <div class="card">
+                    <div class="card-body">
+                      <h5 class="card-title">ETHUSD</h5>
+                      <img src="image 2.png" width="140" height="80" />
+                      <div class="card-item-text"> <span> Ask </span> <span> 0.67065 </span>  </div>
+                      <div class="card-item-text"> <span> Bid </span> <span> 0.6706 </span>  </div>
+                      <div class="card-item-text"> <span> Spread </span> <span> 5 </span>  </div>
+                      <button class="btn btn-danger">Sell</button>
+                      <button class="btn btn-buy">Buy</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Second slide with two cards -->
+              <div class="carousel-item">
+                <div class="card-deck">
+                  <div class="card">
+                    <div class="card-body">
+                      <h5 class="card-title">AUDUSD</h5>
+                      <img src="image 1.png" width="140" height="80" />
+                      <div class="card-item-text"> <span> Ask </span> <span> 0.67065 </span>  </div>
+                      <div class="card-item-text"> <span> Bid </span> <span> 0.6706 </span>  </div>
+                      <div class="card-item-text"> <span> Spread </span> <span> 5 </span>  </div>
+                      <button class="btn btn-danger">Sell</button>
+                      <button class="btn btn-buy">Buy</button>
+                    </div>
+                  </div>
+                  <div class="card">
+                    <div class="card-body">
+                      <h5 class="card-title">EURUSD</h5>
+                      <img src="image 2.png" width="140" height="80" />
+                      <div class="card-item-text"> <span> Ask </span> <span> 0.67065 </span>  </div>
+                      <div class="card-item-text"> <span> Bid </span> <span> 0.6706 </span>  </div>
+                      <div class="card-item-text"> <span> Spread </span> <span> 5 </span>  </div>
+                      <button class="btn btn-danger">Sell</button>
+                      <button class="btn btn-buy">Buy</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Carousel indicators -->
+            <ol class="carousel-indicators">
+              <li
+                data-target="#Spot Metals"
+                data-slide-to="0"
+                class="active"
+              ></li>
+              <li data-target="#Spot Metalsl" data-slide-to="1"></li>
+            </ol>
+            <!-- Carousel controls -->
+            <button
+              class="carousel-control-prev"
+              href="#Spot Metals"
+              role="button"
+              data-slide="prev"
+            >
+              <span
+                class="carousel-control-prev-icon"
+                aria-hidden="true"
+              ></span>
+            </button>
+            <button
+              class="carousel-control-next"
+              href="#Spot Metals"
+              role="button"
+              data-slide="next"
+            >
+              <span
+                class="carousel-control-next-icon"
+                aria-hidden="true"
+              ></span>
+            </button>
+          </div>
+        </div>
+        <!-- Energies tab pane -->
+        <div
+          class="tab-pane fade"
+          id="Energies"
+          role="tabpanel"
+          aria-labelledby="Energies"
+        >
+          <div id="Energies" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+              <!-- First slide with two cards -->
+              <div class="carousel-item active">
+                <div class="card-deck">
+                  <div class="card">
+                    <div class="card-body">
+                      <h5 class="card-title">BTCUSD</h5>
+                      <img src="image 1.png" width="140" height="80" />
+                      <div class="card-item-text"> <span> Ask </span> <span> 0.67065 </span>  </div>
+                      <div class="card-item-text"> <span> Bid </span> <span> 0.6706 </span>  </div>
+                      <div class="card-item-text"> <span> Spread </span> <span> 5 </span>  </div>
+                      <button class="btn btn-danger">Sell</button>
+                      <button class="btn btn-buy">Buy</button>
+                    </div>
+                  </div>
+                  <div class="card">
+                    <div class="card-body">
+                      <h5 class="card-title">ETHUSD</h5>
+                      <img src="image 2.png" width="140" height="80" />
+                      <div class="card-item-text"> <span> Ask </span> <span> 0.67065 </span>  </div>
+                      <div class="card-item-text"> <span> Bid </span> <span> 0.6706 </span>  </div>
+                      <div class="card-item-text"> <span> Spread </span> <span> 5 </span>  </div>
+                      <button class="btn btn-danger">Sell</button>
+                      <button class="btn btn-buy">Buy</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Second slide with two cards -->
+              <div class="carousel-item">
+                <div class="card-deck">
+                  <div class="card">
+                    <div class="card-body">
+                      <h5 class="card-title">AUDUSD</h5>
+                      <img src="image 1.png" width="140" height="80" />
+                      <div class="card-item-text"> <span> Ask </span> <span> 0.67065 </span>  </div>
+                      <div class="card-item-text"> <span> Bid </span> <span> 0.6706 </span>  </div>
+                      <div class="card-item-text"> <span> Spread </span> <span> 5 </span>  </div>
+                      <button class="btn btn-danger">Sell</button>
+                      <button class="btn btn-buy">Buy</button>
+                    </div>
+                  </div>
+                  <div class="card">
+                    <div class="card-body">
+                      <h5 class="card-title">EURUSD</h5>
+                      <img src="image 2.png" width="140" height="80" />
+                      <div class="card-item-text"> <span> Ask </span> <span> 0.67065 </span>  </div>
+                      <div class="card-item-text"> <span> Bid </span> <span> 0.6706 </span>  </div>
+                      <div class="card-item-text"> <span> Spread </span> <span> 5 </span>  </div>
+                      <button class="btn btn-danger">Sell</button>
+                      <button class="btn btn-buy">Buy</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Carousel indicators -->
+            <ol class="carousel-indicators">
+              <li data-target="#Energies" data-slide-to="0" class="active"></li>
+              <li data-target="#Energies" data-slide-to="1"></li>
+            </ol>
+            <!-- Carousel controls -->
+            <button
+              class="carousel-control-prev"
+              href="#Energies"
+              role="button"
+              data-slide="prev"
+            >
+              <span
+                class="carousel-control-prev-icon"
+                aria-hidden="true"
+              ></span>
+            </button>
+            <button
+              class="carousel-control-next"
+              href="#Energies"
+              role="button"
+              data-slide="next"
+            >
+              <span
+                class="carousel-control-next-icon"
+                aria-hidden="true"
+              ></span>
+            </button>
+          </div>
+        </div>
+        <!-- Indices tab pane -->
+        <div
+          class="tab-pane fade"
+          id="Indices"
+          role="tabpanel"
+          aria-labelledby="Indices"
+        >
+          <div id="Indices" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+              <!-- First slide with two cards -->
+              <div class="carousel-item active">
+                <div class="card-deck">
+                  <div class="card">
+                    <div class="card-body">
+                      <h5 class="card-title">BTCUSD</h5>
+                      <img src="image 1.png" width="140" height="80" />
+                      <div class="card-item-text"> <span> Ask </span> <span> 0.67065 </span>  </div>
+                      <div class="card-item-text"> <span> Bid </span> <span> 0.6706 </span>  </div>
+                      <div class="card-item-text"> <span> Spread </span> <span> 5 </span>  </div>
+                      <button class="btn btn-danger">Sell</button>
+                      <button class="btn btn-buy">Buy</button>
+                    </div>
+                  </div>
+                  <div class="card">
+                    <div class="card-body">
+                      <h5 class="card-title">ETHUSD</h5>
+                      <img src="image 2.png" width="140" height="80" />
+                      <div class="card-item-text"> <span> Ask </span> <span> 0.67065 </span>  </div>
+                      <div class="card-item-text"> <span> Bid </span> <span> 0.6706 </span>  </div>
+                      <div class="card-item-text"> <span> Spread </span> <span> 5 </span>  </div>
+                      <button class="btn btn-danger">Sell</button>
+                      <button class="btn btn-buy">Buy</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Second slide with two cards -->
+              <div class="carousel-item">
+                <div class="card-deck">
+                  <div class="card">
+                    <div class="card-body">
+                      <h5 class="card-title">AUDUSD</h5>
+                      <img src="image 1.png" width="140" height="80" />
+                      <div class="card-item-text"> <span> Ask </span> <span> 0.67065 </span>  </div>
+                      <div class="card-item-text"> <span> Bid </span> <span> 0.6706 </span>  </div>
+                      <div class="card-item-text"> <span> Spread </span> <span> 5 </span>  </div>
+                      <button class="btn btn-danger">Sell</button>
+                      <button class="btn btn-buy">Buy</button>
+                    </div>
+                  </div>
+                  <div class="card">
+                    <div class="card-body">
+                      <h5 class="card-title">EURUSD</h5>
+                      <img src="image 2.png" width="140" height="80" />
+                      <div class="card-item-text"> <span> Ask </span> <span> 0.67065 </span>  </div>
+                      <div class="card-item-text"> <span> Bid </span> <span> 0.6706 </span>  </div>
+                      <div class="card-item-text"> <span> Spread </span> <span> 5 </span>  </div>
+                      <button class="btn btn-danger">Sell</button>
+                      <button class="btn btn-buy">Buy</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Carousel indicators -->
+            <ol class="carousel-indicators">
+              <li data-target="#Indices" data-slide-to="0" class="active"></li>
+              <li data-target="#Indices" data-slide-to="1"></li>
+            </ol>
+            <!-- Carousel controls -->
+            <button
+              class="carousel-control-prev"
+              href="#Indices"
+              role="button"
+              data-slide="prev"
+            >
+              <span
+                class="carousel-control-prev-icon"
+                aria-hidden="true"
+              ></span>
+            </button>
+            <button
+              class="carousel-control-next"
+              href="#Indices"
+              role="button"
+              data-slide="next"
+            >
+              <span
+                class="carousel-control-next-icon"
+                aria-hidden="true"
+              ></span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        // Activate Carousel
+        $(".carousel").carousel({
+          interval: 5000,
+        });
+      });
+    </script>
+  </body>
+</html>
