@@ -1,0 +1,112 @@
+body {
+    background-color: #100421; 
+}
+.card-item-text{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    color: #ffffff;
+  }
+  /* Custom styles */
+  .nav-tabs .nav-link.active {
+    color: #c104d2;
+    background: none;
+  }
+  .nav-link:hover {
+    border: none;
+    border-bottom: 1px solid #c104d2 !important;
+    color: #c104d2;
+  } 
+  .nav-tabs {
+    border-bottom: none;
+  }
+  .nav-tabs .nav-link.active {
+    border: none;
+    border-bottom:1px solid #c104d2;
+  }
+  .nav-link {
+    color: white;
+  }
+  .tab-content {
+    padding: 20px;
+    border-top: none;
+  }
+  .carousel-indicators {
+    bottom: -40px;
+  }
+  .carousel-indicators li {
+    background-color: #007bff;
+    cursor: pointer;
+  }
+  .carousel-item {
+    
+    text-align: center;
+    min-height: 400px; /* Adjust height as needed */
+  }
+  .card {
+    height: 320px;
+    margin: 10px; /* Spacing between cards */
+    background-color: #100421;
+    border: 1px solid white;
+    border-radius: 20px;
+    
+
+  }
+  .card .btn {
+    margin-top: 10px; /* Spacing above buttons */
+    height: 40px;
+    width: 70px;
+    margin-right: 20px;
+    margin-top: 40px;
+  }
+  .card-text {
+    margin-bottom: 0.5rem;
+  }
+  .card-body p {
+    font-size: 0.9rem; /* Smaller font size for card text */
+    
+  }
+  .card-title {
+    color: #ffffff;
+  }
+  .d-flex justify-content-between{
+    display: flex;
+    width: 100%;
+  }
+  .carousel-control-prev {
+    margin-top: 35%;
+    margin-left: 45%;
+    border-radius: 100%;
+    background-color: #c104d2;
+    width: 40px;
+    height: 40px;
+  }
+
+  .carousel-control-next {
+    margin-top: 35%;
+    margin-right: 45%;
+    border-radius: 100%;
+    background-color: #c104d2;
+    width: 40px;
+    height: 40px;
+  }
+
+
+  .btn-buy{
+    background-color: #c104d2;
+    color:#ffffff;
+    width:  100px;
+    height: 56px;
+  }
+  .btn-danger{
+    background-color: #ED4C5C;
+    color: #ffffff;
+    width:  124px;
+    height: 56px;
+  }
+ 
+
+  .nav-item {
+    padding-left: 54.2px; 
+  }
+  
